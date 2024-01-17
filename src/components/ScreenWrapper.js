@@ -3,7 +3,7 @@ import ContinueButton from './subcomponents/ContinueButton';
 import Demo from './subcomponents/Demo'
 import ProgressIndicator from './subcomponents/ProgressIndicator';
 
-const ScreenWrapper = ({ children }) => {
+const ScreenWrapper = ({ children, handleClick}) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div style={{ flex: 1, paddingBottom: '16px' }}>
@@ -11,7 +11,7 @@ const ScreenWrapper = ({ children }) => {
         {children}
       </div>
       <div style={{ alignSelf: 'flex-end', marginRight: '16px' }}>
-        <ContinueButton />
+        <ContinueButton handleClick={handleClick} />
       </div>
     </div>
   );

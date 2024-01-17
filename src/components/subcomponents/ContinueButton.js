@@ -14,9 +14,9 @@ const StyledContinueButton = styled(Button)(({ theme }) => ({
   fontFamily:'sans-serif'
 }));
 
-const ContinueButton = () => {
+const ContinueButton = ({handleClick}) => {
   return (
-    <StyledContinueButton variant="contained">
+    <StyledContinueButton variant="contained" onClick={handleClick}>
       Continue
     </StyledContinueButton>
   );

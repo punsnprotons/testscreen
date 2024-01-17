@@ -5,6 +5,7 @@ import SelectTimestamps from './components/SelectTimestamps';
 import CreateForm from './components/CreateForm';
 import GenerateLink from './components/GenerateLink';
 import Home from './components/Home';
+import AnalyzeResults from './components/AnalyzeResults';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/selecttime' element={<SelectTimestamps />} />
         <Route path='/createform' element={<CreateForm />} />
         <Route path='/createlink' element={<GenerateLink />} />
+        <Route path='/results' element={<AnalyzeResults />} />
       </Routes>
     </Router>
   );
