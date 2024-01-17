@@ -18,11 +18,11 @@ const CircleContainer = styled('div')({
   alignItems: 'center',
 });
 
-const Circle = styled('div')(({ theme }) => ({
+const Circle = styled('div')(({ theme,active }) => ({
   width: '30px',
   height: '30px',
   borderRadius: '50%',
-  backgroundColor: '#583BC9',
+  backgroundColor: active ? '#583BC9' : '#7C5CF5',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -43,7 +43,7 @@ const Text = styled('div')({
   fontWeight:'inherit',
 });
 
-const ProgressIndicator = () => {
+const ProgressIndicator = ({ activeStep }) => {
   const steps = [
     { label: 'Upload video', icon: 1 },
     { label: 'Select Timestamps', icon: 2 },
@@ -57,7 +57,7 @@ const ProgressIndicator = () => {
       {steps.map((step, index) => (
         <React.Fragment key={step.icon}>
           <CircleContainer>
-            <Circle>{step.icon}</Circle>
+            <Circle active={activeStep === step.icon} >{step.icon}</Circle>
             {index < steps.length  && <Text>{step.label}</Text>}
           </CircleContainer>
           {index < steps.length - 1 && <ArrowIcon />}

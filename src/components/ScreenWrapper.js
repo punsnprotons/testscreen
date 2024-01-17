@@ -5,8 +5,8 @@ import ProgressIndicator from './subcomponents/ProgressIndicator';
 
 const ScreenWrapper = ({ children, handleClick}) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <div style={{ flex: 1, paddingBottom: '16px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', marginHorizontal:'30px' }}>
+      <div style={{ flex: 1, paddingBottom: '16px', }}>
         {/* Content of the screen */}
         {children}
       </div>
