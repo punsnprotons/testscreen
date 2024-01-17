@@ -1,0 +1,20 @@
+import React from 'react';
+import ContinueButton from './subcomponents/ContinueButton';
+import Demo from './subcomponents/Demo'
+import ProgressIndicator from './subcomponents/ProgressIndicator';
+
+const ScreenWrapper = ({ children }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div style={{ flex: 1, paddingBottom: '16px' }}>
+        {/* Content of the screen */}
+        {children}
+      </div>
+      <div style={{ alignSelf: 'flex-end', marginRight: '16px' }}>
+        <ContinueButton />
+      </div>
+    </div>
+  );
+};
+
+export default ScreenWrapper;
