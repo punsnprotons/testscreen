@@ -2,10 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Upload from './components/Upload';
 import SelectTimestamps from './components/SelectTimestamps';
-import CreateForm from './components/CreateForm';
 import GenerateLink from './components/GenerateLink';
 import Home from './components/Home';
 import AnalyzeResults from './components/AnalyzeResults';
+import ReviewScreen from './components/ReviewScreen';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/upload' element={<Upload />} />
         <Route path='/selecttime' element={<SelectTimestamps />} />
-        <Route path='/createform' element={<CreateForm />} />
+        <Route path='/review' element={<ReviewScreen />} />
         <Route path='/createlink' element={<GenerateLink />} />
         <Route path='/results' element={<AnalyzeResults />} />
       </Routes>

@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
-function CreateForm() {
+function ReviewScreen() {
 
   const navigate = useNavigate();
 
@@ -20,9 +20,9 @@ function CreateForm() {
       <ScreenWrapper  handleClick={handleContinue}>
       <Demo/>
       <ProgressIndicator/> 
-      <Typography varaint="h3"> Generate Link Screen</Typography>
+      <Typography varaint="h3">Review Screen</Typography>
       </ScreenWrapper>
   );
 }
 
-export default CreateForm
+export default ReviewScreen

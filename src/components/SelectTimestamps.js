@@ -5,7 +5,7 @@ import ProgressIndicator from './subcomponents/ProgressIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Typography, Slider, Button, Dialog, DialogTitle, DialogContent, TextField, Box, List, ListItem, ListItemText, MenuItem } from '@mui/material';
 import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Checkbox, FormGroup } from '@mui/material';
-
+import { useAppContext } from '../AppContext';
 
 
 function SelectTimestamps() {
@@ -17,17 +17,18 @@ function SelectTimestamps() {
   const [forms, setForms] = useState([]);
   const [selectedType, setSelectedType] = useState('multipleChoice'); // or initialize with your default type
   const [editingIndex, setEditingIndex] = useState(null); // Add this line
-
+  const {setVideoAndForms} = useAppContext()
 
   const videoRef = useRef(null);
 
   const handleContinue = () => {
-    navigate('/createform');
+    setVideoAndForms(videoFile,forms)
+    navigate('/review');
   };
 
   const handleSliderChange = (event, newValue) => {
     setSelectedTimestamp(newValue);
-    if (videoRef.current) {
+    if (videoRef.current && !isNaN(newValue) && isFinite(newValue)) {
       videoRef.current.currentTime = (newValue / 100) * videoRef.current.duration;
     }
   };
@@ -73,10 +74,9 @@ function SelectTimestamps() {
     <ScreenWrapper handleClick={handleContinue}>
       <Demo />
       <ProgressIndicator />
-      <Typography variant="h3">Select Timestamp Screen</Typography>
 
       {videoFile && (
-        <div style={{ width: '70%', height: '40%', margin: 'auto', borderRadius: '20px', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.2)' }}>
+        <div style={{ width: '70%', height: '40%', margin: 'auto', borderRadius: '20px', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.2)', marginTop:'15px'}}>
           <video
             ref={videoRef}
             width="100%"
