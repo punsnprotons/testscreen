@@ -17,12 +17,12 @@ function SelectTimestamps() {
   const [forms, setForms] = useState([]);
   const [selectedType, setSelectedType] = useState('multipleChoice'); // or initialize with your default type
   const [editingIndex, setEditingIndex] = useState(null); // Add this line
-  const {setVideoAndForms} = useAppContext()
+  const {videoData,formData,setContextData} = useAppContext()
 
   const videoRef = useRef(null);
 
   const handleContinue = () => {
-    setVideoAndForms(videoFile,forms)
+    setContextData({videoData:videoFile, formData})
     navigate('/review');
   };
 

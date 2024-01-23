@@ -3,13 +3,17 @@ const AppContext = createContext()
 
 export const AppProvider = ({children}) =>{
     const [videoData,setVideoData] = useState(null)
+    const [formData, setFormData] = useState([]);
+
     const [formResponses,setFormResponses] = useState([])
-    const setVideoAndForms = (video,forms) =>{
-        setVideoData(video)
-        setFormResponses(forms)
+    
+
+    const setContextData = (data) =>{
+        if (data.videoData) setVideoData(data.videoData)
+        if (data.formData) setFormData(data.formData)
     }
     return (
-        <AppContext.Provider value={{videoData,formResponses,setVideoAndForms}}>
+        <AppContext.Provider value={{videoData,formResponses,setContextData}}>
             {children}
         </AppContext.Provider>
     )
