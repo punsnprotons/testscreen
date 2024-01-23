@@ -12,6 +12,15 @@ app.use(bodyParser.json());
 // Replace 'your_database_connection_string' with your MongoDB connection string
 mongoose.connect('mongodb+srv://shaadsufi:passwordpassword@cluster0.gfzrtnp.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
+// Access the Mongoose connection object
+const db = mongoose.connection;
+
+// Set up event listeners for the connection
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
+
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,

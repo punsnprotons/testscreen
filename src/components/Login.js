@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Box } from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios'; // Import axios library
 
-const Login = ({ handleLogin }) => {
+
+const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+  const navigate = useNavigate();
+
+
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    // Implement login logic and API call to the server
-    handleLogin(formData);
-  };
+  
 
+  const handleSubmit = () => {
+    const user = {
+      user: formData.username,
+      password: formData.password,
+    };
+  
+    axios.post('https://192.168.0.101:8000/login', user)
+      .then((response) => {
+        console.log(response);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Signup failed:', error);
+        // You may want to show an error message to the user
+      });
+  };
   return (
     <Box>
       <Typography variant="h5" gutterBottom>

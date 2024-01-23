@@ -1,4 +1,6 @@
 import './App.css';
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Upload from './components/Upload';
 import SelectTimestamps from './components/SelectTimestamps';
@@ -10,6 +12,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 
 function App() {
+
+
   return (
     <Router>
       <Routes>
